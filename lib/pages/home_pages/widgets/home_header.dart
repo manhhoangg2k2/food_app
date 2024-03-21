@@ -11,12 +11,16 @@ class HomeHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text("Hello Hoang"),
-              Text("Goodmorning")
+              Text("Hello Hoang", style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),),
+              Text("Good morning")
             ],
           ),
-          Icon(Icons.notifications)
+          Icon(Icons.notifications_none)
         ],
       )
     );

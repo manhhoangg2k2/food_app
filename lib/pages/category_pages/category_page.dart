@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/data/items_data.dart';
 import 'package:food_app/pages/detail_pages/items_detail.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -17,16 +18,13 @@ class CategoryPage extends StatelessWidget {
           },
           
           itemCount: itemList.length,
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
           itemBuilder: (BuildContext context, int index){
             return InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ItemDetails(items: itemList[index]),
-                  ),
-                );
+                context.goNamed("detail", pathParameters: {
+                    "id": "$index"
+                });
               },
               child: AspectRatio(
                 aspectRatio: 5/2,
@@ -37,7 +35,7 @@ class CategoryPage extends StatelessWidget {
                   color: Colors.amber, 
                   borderRadius: BorderRadius.circular(10),
                   ),
-                  margin: EdgeInsets.only(bottom: 10),
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: 
                     FadeInImage.memoryNetwork(
                       width: double.infinity,
