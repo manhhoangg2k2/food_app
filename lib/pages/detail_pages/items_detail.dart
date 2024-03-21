@@ -16,8 +16,15 @@ class _ItemDetailsState extends State<ItemDetails> {
       body: Column(
         children: [
           FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: widget.items.img),
-          Text(widget.items.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-          Text(widget.items.description)
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(children: [
+              Text(widget.items.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Text(widget.items.description)
+            ],),
+          )
+          
         ],
       ),
     );

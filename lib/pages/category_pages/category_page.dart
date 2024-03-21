@@ -21,8 +21,6 @@ class CategoryPage extends StatelessWidget {
           itemBuilder: (BuildContext context, int index){
             return InkWell(
               onTap: () {
-                // Xử lý sự kiện khi bấm vào phần tử
-                // Ví dụ: Chuyển hướng sang trang chi tiết
                 Navigator.push(
                   context,
                   MaterialPageRoute(
