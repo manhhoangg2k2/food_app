@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/pages/category_pages/category_page.dart';
+import 'package:food_app/pages/detail_pages/items_detail.dart';
 import 'package:food_app/pages/home_pages/home_page.dart';
 
 void main() {
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const CategoryPage(),
     );
   }
 }
