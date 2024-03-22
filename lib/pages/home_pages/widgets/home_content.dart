@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_app/data/items_data.dart';
 import 'package:go_router/go_router.dart';
+import 'package:like_button/like_button.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:food_app/controller/item_controller.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -21,7 +24,9 @@ class HomeContent extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: () {
-                context.go("/category");
+                context.goNamed("detail", pathParameters: {
+                    "id": "$index"
+                });
               },
               child: Container(
                 clipBehavior: Clip.hardEdge,
@@ -39,21 +44,32 @@ class HomeContent extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(10) 
                 ),
-                child: FadeInImage.memoryNetwork(
-                  width: double.infinity,
-                  height: double.infinity,
-                  placeholder: kTransparentImage, 
-                  fit: BoxFit.cover,
-                  image: 
-                    itemList[index].img
-                  ),
+                child: Stack(
+                  children: [
+                    FadeInImage.memoryNetwork(
+                    width: double.infinity,
+                    height: double.infinity,
+                    placeholder: kTransparentImage, 
+                    fit: BoxFit.cover,
+                    image: 
+                      itemList[index].img
+                    ),
+                    Positioned(
+                      bottom: 0, 
+                      right: 0,
+                      child:  LikeButton(
+                        onTap: (like) {
+                          ItemController.addItemToFavor(itemList[index].id);
+                          return Future.value(!like);
+                        },
+                      )
+                    )
+                ]),
               ),
             ),
           ),
           const SizedBox(height: 5),
-          
         ],
-        
       );
     });
   }
