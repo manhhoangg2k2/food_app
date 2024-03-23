@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/controller/cart_controller.dart';
 import 'package:food_app/controller/item_controller.dart';
 import 'package:food_app/data/cart_data.dart';
 import 'package:food_app/pages/cart_pages/widget/total.dart';
+import 'package:food_app/pages/order_page/widget/total.dart';
 import 'package:item_count_number_button/item_count_number_button.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+class OrderPage extends StatelessWidget {
+  const OrderPage({super.key});
 
-  @override
-  State<CartPage> createState() => _CartPageState();
-}
-
-class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cart"),),
+      appBar: AppBar(title: const Text("Order"),),
       body: SafeArea(
         child: ListView.separated(
           separatorBuilder: (BuildContext context,int index){
-            return const SizedBox(height: 15,);
+            return const SizedBox(height: 5,);
           },
           itemCount: cart.cartList.length,
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
           itemBuilder: (BuildContext context, int index){
             return Container(
               decoration: const BoxDecoration(
@@ -58,18 +53,11 @@ class _CartPageState extends State<CartPage> {
                                 ),  
                               ),
                               Text("Price: ${ItemController.getItemById(cart.cartList[index.toString()].toString()).price}"),
+                              Text("x${cart.cartList[index.toString()]}"),
+
                             ],
                           ),
-                          ItemCount(
-                            initialValue: cart.cartList[index.toString()]?.toInt() ?? 0,
-                            minValue: 0,
-                            maxValue: 100,
-                            decimalPlaces: 0,
-                            onChanged: (value) {
-                              // Handle counter value changes
-                              value+=1;
-                            },
-                          ),
+                          
                         ],
                       ),
                     )
@@ -79,7 +67,7 @@ class _CartPageState extends State<CartPage> {
           })
         ),
         persistentFooterButtons: [
-          Total()
+          TotalOrder()
         ],
     );
   }

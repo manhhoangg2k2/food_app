@@ -61,6 +61,10 @@ class HomeContent extends StatelessWidget {
                       child:  InkWell(
                         onTap: (){
                           CartController.addToCart(itemList[index].id);
+                          final snackBar = SnackBar(
+                              content: Text('Thêm vào giỏ hàng thành công'),
+                            );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Icon(
                           Icons.add_shopping_cart_outlined,

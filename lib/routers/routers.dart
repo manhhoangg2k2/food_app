@@ -4,6 +4,7 @@ import 'package:food_app/models/Items.dart';
 import 'package:food_app/pages/cart_pages/cart_page.dart';
 import 'package:food_app/pages/category_pages/category_page.dart';
 import 'package:food_app/pages/detail_pages/items_detail.dart';
+import 'package:food_app/pages/order_page/order_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:food_app/pages/home_pages/home_page.dart';
 
@@ -38,6 +39,15 @@ class RouterCustom{
             pageBuilder: (BuildContext context,GoRouterState state) {
               return MaterialPage(
                 child: CartPage(),
+              );
+            },
+          ),
+          GoRoute(
+            name: "order",
+            path: 'order',
+            pageBuilder: (BuildContext context,GoRouterState state) {
+              return MaterialPage(
+                child: OrderPage(),
               );
             },
           ),

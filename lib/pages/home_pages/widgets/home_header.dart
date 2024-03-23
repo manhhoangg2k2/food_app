@@ -8,37 +8,35 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text("Hello Hoang", style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),),
-              Text("Good morning")
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {
-                context.goNamed("cart");
-              },
-                child: 
-                  Icon(
-                    Icons.shopping_cart_outlined
-                  )
-                ),
-              Icon(Icons.notifications_none)
-            ],
-          )
-        ],
-      )
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text("Hello Hoang", style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+            ),),
+            Text("Good morning")
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            InkWell(
+              onTap: () {
+              context.goNamed("cart");
+            },
+              child: 
+                const Icon(
+                  Icons.shopping_cart_outlined
+                )
+              ),
+            const Icon(Icons.notifications_none)
+          ],
+        )
+      ],
     );
   }
 }
