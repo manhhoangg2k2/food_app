@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:food_app/controller/cart_controller.dart';
 import 'package:food_app/data/items_data.dart';
 import 'package:go_router/go_router.dart';
 import 'package:like_button/like_button.dart';
@@ -56,10 +57,23 @@ class HomeContent extends StatelessWidget {
                     ),
                     Positioned(
                       bottom: 0, 
+                      left: 10,
+                      child:  InkWell(
+                        onTap: (){
+                          CartController.addToCart(itemList[index].id);
+                        },
+                        child: const Icon(
+                          Icons.add_shopping_cart_outlined,
+                           color: Colors.grey,
+                          ),
+                      )
+                    ),
+                    Positioned(
+                      bottom: 0, 
                       right: 0,
                       child:  LikeButton(
                         onTap: (like) {
-                          ItemController.addItemToFavor(itemList[index].id);
+                          ItemController.addItemToFavor(itemList[index].id,like);
                           return Future.value(!like);
                         },
                       )

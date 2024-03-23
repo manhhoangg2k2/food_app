@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/data/items_data.dart';
 import 'package:food_app/models/Items.dart';
+import 'package:food_app/pages/cart_pages/cart_page.dart';
 import 'package:food_app/pages/category_pages/category_page.dart';
 import 'package:food_app/pages/detail_pages/items_detail.dart';
 import 'package:go_router/go_router.dart';
@@ -28,6 +29,15 @@ class RouterCustom{
               Map data = state.pathParameters;
               return MaterialPage(
                 child: ItemDetails(id: data['id']),
+              );
+            },
+          ),
+          GoRoute(
+            name: "cart",
+            path: 'cart',
+            pageBuilder: (BuildContext context,GoRouterState state) {
+              return MaterialPage(
+                child: CartPage(),
               );
             },
           ),

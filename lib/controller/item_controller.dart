@@ -12,12 +12,11 @@ class ItemController{
     return itemList[0]; // Trả về null nếu không tìm thấy mục với id tương ứng
   }
 
-  static void addItemToFavor(String id){
-    if(FavorList.contains(id)){
+  static void addItemToFavor(String id, bool like){
+    if(FavorList.contains(id) || like){
       FavorList.remove(id);
     }
-    FavorList.add(id);
+    else{FavorList.add(id);}
     print(FavorList);
   }
-
 }
