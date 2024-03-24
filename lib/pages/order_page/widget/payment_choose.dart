@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:food_app/controller/order_controller.dart';
 import 'package:food_app/data/order_data.dart';
 import 'package:food_app/data/payment_data.dart';
+import 'package:go_router/go_router.dart';
 
 class PaymentChoose extends StatefulWidget {
   PaymentChoose({Key? key}) : super(key: key);
@@ -69,6 +70,7 @@ class _PaymentChooseState extends State<PaymentChoose> {
               child: ElevatedButton(
                 onPressed: () { 
                     order.pay = OrderController.getPayById((selectedIndex+1).toString());
+                    context.goNamed("order");
                  },
                 child: Text("Confirm"),
               )

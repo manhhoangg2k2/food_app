@@ -24,43 +24,47 @@ class _ListItemState extends State<ListItem> {
               // decoration: const BoxDecoration(
               //   border: Border(bottom: BorderSide(color: Colors.grey, ))
               // ),
-              child: AspectRatio(
-                aspectRatio: 7/2,
-                child: Container(
-                  alignment: Alignment.topLeft,
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FadeInImage.memoryNetwork(
-                          height: 100,
-                          width: 100,
-                          placeholder: kTransparentImage, 
-                          fit: BoxFit.cover,
-                          image: 
-                            ItemController.getItemById(cart.cartList[index.toString()].toString()).img
-                          ),
-              
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 7/2,
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                ItemController.getItemById(cart.cartList[index.toString()].toString()).name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24
-                                ),  
+                              FadeInImage.memoryNetwork(
+                              height: 100,
+                              width: 100,
+                              placeholder: kTransparentImage, 
+                              fit: BoxFit.cover,
+                              image: 
+                                ItemController.getItemById(cart.cartList[index.toString()].toString()).img
                               ),
-                              Text("Price: ${ItemController.getItemById(cart.cartList[index.toString()].toString()).price}"),
-                              Text("x${cart.cartList[index.toString()]}"),
-
+                  
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    ItemController.getItemById(cart.cartList[index.toString()].toString()).name,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24
+                                    ),  
+                                  ),
+                                  Text("Price: ${ItemController.getItemById(cart.cartList[index.toString()].toString()).price}"),
+                                  Text("x${cart.cartList[index.toString()]}"),
+                                ],
+                              ),
+                              SizedBox(width: 0,)
                             ],
                           ),
-                          
-                        ],
+                        )
                       ),
-                    )
                   ),
+                  Container(height: 5,color: Color.fromARGB(255, 241, 241, 241),),
+                ],
               ),
             );
             
