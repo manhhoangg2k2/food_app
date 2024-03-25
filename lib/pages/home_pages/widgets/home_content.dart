@@ -62,7 +62,7 @@ class HomeContent extends StatelessWidget {
                         onTap: (){
                           CartController.addToCart(itemList[index].id);
                           final snackBar = SnackBar(
-                              content: Text('Thêm vào giỏ hàng thành công'),
+                              content: Text('Succesfull'),
                             );
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },

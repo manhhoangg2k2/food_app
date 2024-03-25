@@ -22,43 +22,48 @@ class OrderPage extends StatelessWidget {
           children: [
             Expanded(child: ListItem()),
             Container(height: 10,color: Color.fromARGB(255, 241, 241, 241),),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 241, 253, 241),
-                border: Border.all(color: Colors.green.shade200)
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border(bottom: BorderSide(color: Color.fromARGB(255, 238, 222, 222)))
+            InkWell(
+              onTap: () {
+                context.goNamed("shipments");
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 241, 253, 241),
+                  border: Border.all(color: Colors.green.shade200)
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(bottom: BorderSide(color: Color.fromARGB(255, 238, 222, 222)))
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Choose Shipment Method"),
+                          Icon(Icons.keyboard_arrow_right_outlined)
+                        ],
+                      ),
                     ),
-                    child: Row(
+                    SizedBox(height: 10,),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Choose Shipment Method"),
-                        Icon(Icons.keyboard_arrow_right_outlined)
+                        Text(order.ship.name,style: TextStyle(fontWeight: FontWeight.bold),),
+                        Text("đ22.000"),
                       ],
                     ),
-                  ),
-                  SizedBox(height: 10,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Fast",style: TextStyle(fontWeight: FontWeight.bold),),
-                      Text("đ22.000"),
-                    ],
-                  ),
-                  SizedBox(height: 10,),
-                  Row(
-                    children: [
-                      Icon(Icons.local_shipping_sharp, color: Colors.green,),
-                      SizedBox(width: 10,),
-                      Text("Received at Mar 24, 2024 - Mar 26, 2024",style: TextStyle(color: Colors.green),),
-                    ]
-                  )
-                ],
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Icon(Icons.local_shipping_sharp, color: Colors.green,),
+                        SizedBox(width: 10,),
+                        Text("Received at Mar 24, 2024 - Mar 26, 2024",style: TextStyle(color: Colors.green),),
+                      ]
+                    )
+                  ],
+                ),
               ),
             ),
             Container(height: 10,color: Color.fromARGB(255, 241, 241, 241),),

@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.1.2
   item_count_number_button: ^1.9.2
   flutter_spinbox: ^0.13.1
+  search_page: ^2.3.0
 
 dev_dependencies:
   flutter_test:

@@ -19,4 +19,14 @@ class ItemController{
     else{FavorList.add(id);}
     print(FavorList);
   }
+
+  static List<Items> listSearch(String value){
+    List<Items> listS = [];
+    for(var item in itemList){
+      if(item.name.contains(value)){
+        listS.add(item);
+      }
+    }
+    return listS;
+  }
 }
